@@ -39,21 +39,18 @@ const MenuS = styled.nav`
   }
 `;
 function Menu() {
-    return (
-        <div>
-            <MenuS>
-                <ul>
-                    <li><Link to="/">HOME</Link></li>
+  return (
+    <div>
+      <MenuS>
+        <ul>
+          <li><Link to="/">HOME</Link></li>
+          <li><Link to="/allpokemons">POKÉDEX</Link></li>
+          <li><Link to="/pokebag">POKÉBAG</Link></li>
+        </ul>
+      </MenuS>
 
-                    <li><Link to="/allpokemons">LISTA DE POKEMONS</Link></li>
-
-                    <li><Link to="/receita">POKE-BAG</Link></li>
-
-                </ul>
-            </MenuS>
-
-        </div>
-    )
+    </div>
+  )
 }
 
 export default Menu
