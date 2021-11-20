@@ -1,9 +1,9 @@
 import React from 'react';
 import {Switch, Route } from 'react-router-dom';
-import Home from './components/home/Home'
-import AllPokemons from './components/allpokemons/AllPokemons'
-import Pokemon from './components/pokemon/Pokemon';
-import Pokebag from './components/pokebag/Pokebag';
+import Home from './pages/home/Home'
+import AllPokemons from './pages/allpokemons/AllPokemons'
+import Pokemon from './pages/pokemon/Pokemon';
+import Pokebag from './pages/pokebag/Pokebag';
 
 function Routes() {
     return (
@@ -11,7 +11,7 @@ function Routes() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/allpokemons" component={AllPokemons} />
-          <Route path="/pokemon" component={Pokemon} />
+          <Route path="/pokemon/:id" component={Pokemon} />
           <Route path="/pokebag" component={Pokebag} />
         </Switch>
       </>

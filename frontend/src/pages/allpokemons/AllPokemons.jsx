@@ -36,7 +36,10 @@ function AllPokemons() {
                     <img src={images[pokemon.name] ? images[pokemon.name] : images[notFound]} alt={pokemon.name} />
                     <h2>{pokemon.name}</h2>
                     <span>{pokemon.type1}</span> / <span>{pokemon.type2}</span>
-                </div> 
+                    <div>
+                        <Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>
+                    </div>
+                </div>
             ))}
             <p>pokemon 1</p><Link to="pokemon">Link</Link>
             <p>pokemon 2</p>
