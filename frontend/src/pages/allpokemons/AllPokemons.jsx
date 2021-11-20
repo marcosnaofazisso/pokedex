@@ -1,9 +1,14 @@
 import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import CardAllPokemons from '../../components/cardallpokemons/CardAllPokemons'
+import ContainerAllPokemons from '../../components/cardallpokemons/ContainerAllPokemons'
+import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
+
 import pokemon1 from '../../assets/img/bulbasaur.jpg'
 import pokemon2 from '../../assets/img/ivysaur.jpg'
 import pokemon3 from '../../assets/img/venusaur.jpg'
 import notFound from '../../assets/img/logo.png'
+
 
 const images = {
     Bulbasaur: pokemon1,
@@ -28,25 +33,26 @@ function AllPokemons() {
     }, [pokemons])
 
     return (
-        <div>
+        <MainDiv>
             <h1>Pokemons</h1>
-            {pokemons.map((pokemon) => (
-                <div key={pokemon.id}>
-                    <p>#{`${pokemon.id}`.padStart(3, `0`)}</p>
-                    <img src={images[pokemon.name] ? images[pokemon.name] : images[notFound]} alt={pokemon.name} />
-                    <h2>{pokemon.name}</h2>
-                    <span>{pokemon.type1}</span> / <span>{pokemon.type2}</span>
-                    <div>
-                        <Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>
-                    </div>
-                </div>
-            ))}
-            <p>pokemon 1</p><Link to="pokemon">Link</Link>
-            <p>pokemon 2</p>
-            <p>pokemon 3</p>
-            <p>pokemon 4</p>
-            <p>pokemon 5</p>
-        </div>
+            <MainContainer>
+                <ContainerAllPokemons>
+                    {pokemons.map((pokemon) => {
+                        return (
+                            <CardAllPokemons
+                                key={pokemon.id}
+                                id={pokemon.id}
+                                name={pokemon.name}
+                                img={images[pokemon.name] ? images[pokemon.name] : images[notFound]}
+                                type1={pokemon.type1}
+                                type2={pokemon.type2}
+                                link={<Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>}
+                            ></CardAllPokemons>
+                        );
+                    })}
+                </ContainerAllPokemons>
+            </MainContainer>
+        </MainDiv>
     )
 }
 
