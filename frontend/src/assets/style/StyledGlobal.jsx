@@ -9,10 +9,24 @@ export const MainDiv = styled.div`
 `;
 
 export const MainContainer = styled.div`
+  display: flex;
   margin: 1rem 0 0;
   padding: 0 50px;
+  border-radius: 15px;
   background: rgb(247, 246, 246);
   height: 100%;
+
+  #ash {
+    margin-left: 3rem;
+    margin-top: 6rem;
+    width: 30%;
+    height: 30%;
+  }
+  #pikachu {
+    margin-top: 17rem;
+    width: 20%;
+    height: 20%;
+  }
  
   @media (max-width: 789px) {
     margin: 3rem 3% auto;
