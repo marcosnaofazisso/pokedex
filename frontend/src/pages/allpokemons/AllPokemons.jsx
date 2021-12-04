@@ -9,12 +9,23 @@ import pokemon2 from '../../assets/img/ivysaur.jpg'
 import pokemon3 from '../../assets/img/venusaur.jpg'
 import notFound from '../../assets/img/logo.png'
 
+const vermelho = "ff0000;"
+const verde = "00ff00;"
+const azul = "0000ff;"
+const semCor = "000000;"
 
 const images = {
     Bulbasaur: pokemon1,
     Ivysaur: pokemon2,
     Venusaur: pokemon3,
     notFound: notFound
+}
+
+const colors = {
+    grass: verde,
+    water: azul,
+    fire: vermelho,
+    noColor: semCor
 }
 
 function AllPokemons() {
@@ -44,6 +55,7 @@ function AllPokemons() {
                                 id={pokemon.id}
                                 name={pokemon.name}
                                 img={images[pokemon.name] ? images[pokemon.name] : images[notFound]}
+                                color={colors[pokemon.type1] ? colors[pokemon.type1] : colors[semCor] }
                                 type1={pokemon.type1}
                                 type2={pokemon.type2}
                                 link={<Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>}
