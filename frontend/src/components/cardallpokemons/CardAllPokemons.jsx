@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
 const CardPoke = styled.div`
-    background-color: #c5f0accf;
+    background-color: #fff;
   border-radius: 10px;
   width: 20%;
   padding: 1.4rem;
