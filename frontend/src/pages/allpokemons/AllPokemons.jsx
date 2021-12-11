@@ -3,23 +3,12 @@ import { Link } from 'react-router-dom'
 import CardAllPokemons from '../../components/cardallpokemons/CardAllPokemons'
 import ContainerAllPokemons from '../../components/cardallpokemons/ContainerAllPokemons'
 import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
-
-import pokemon1 from '../../assets/img/bulbasaur.jpg'
-import pokemon2 from '../../assets/img/ivysaur.jpg'
-import pokemon3 from '../../assets/img/venusaur.jpg'
-import notFound from '../../assets/img/logo.png'
+import { images } from '../../assets/data/AllPokemonImages'
 
 const vermelho = "ff0000;"
 const verde = "00ff00;"
 const azul = "0000ff;"
 const semCor = "000000;"
-
-const images = {
-    Bulbasaur: pokemon1,
-    Ivysaur: pokemon2,
-    Venusaur: pokemon3,
-    notFound: notFound
-}
 
 const colors = {
     grass: verde,
@@ -54,7 +43,7 @@ function AllPokemons() {
                                 key={pokemon.id}
                                 id={pokemon.id}
                                 name={pokemon.name}
-                                img={images[pokemon.name] ? images[pokemon.name] : images[notFound]}
+                                img={images[pokemon.name] ? images[pokemon.name] : images[-1]}
                                 color={colors[pokemon.type1] ? colors[pokemon.type1] : colors[semCor] }
                                 type1={pokemon.type1}
                                 type2={pokemon.type2}

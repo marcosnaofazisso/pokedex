@@ -18,6 +18,7 @@ function Home() {
         <MainDiv>
             <MainContainer>
                 <img id="ash" src={ash} alt="ash" />
+
                 <FormWrapper>
                     <FormBody>
                         <FormHeader>
@@ -56,7 +57,7 @@ function Home() {
                         </FormFieldset>
                     </FormBody>
                 </FormWrapper>
-                <img id="pikachu" src={pikachu} alt="pikachu" />
+
             </MainContainer>
         </MainDiv>
     )
