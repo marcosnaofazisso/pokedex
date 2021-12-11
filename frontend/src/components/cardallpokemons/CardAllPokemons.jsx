@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+
+var mainColor = 'white';
+var typeColor = 'purple';
 
 
 const CardPoke = styled.div`
-    background-color: #fff;
+  background-color: #fff;
   border-radius: 10px;
   width: 20%;
   padding: 1.4rem;
   margin: 1rem;
+  box-shadow: inset 0 0 1em ${mainColor}, 0 0 1em ${props => props.type};
   img {
     width: 100%;
   }
@@ -22,17 +26,27 @@ const CardPoke = styled.div`
 `;
 
 function CardAllPokemons(props) {
-    return (
-            <CardPoke>
-                <div>
-                    <p>#{`${props.id}`.padStart(3, `0`)}</p>
-                    <img src={props.img} alt={props.name} />
-                    <h3>{props.name}</h3>
-                    <span>{props.type1}</span> / <span>{props.type2}</span>
-                </div>
-            </CardPoke>
 
-    )
+  if (props.color == 'grass') {
+    typeColor = 'green'
+    return typeColor
+  }
+
+  return (
+    <CardPoke type={props.color}>
+      <div>
+        <p>#{`${props.id}`.padStart(3, `0`)}</p>
+        <img src={props.img} alt={props.name} />
+        <h3>{props.name}</h3>
+        <span>{props.type1}</span> / <span>{props.type2}</span>
+        <div>
+          <span>{props.color}</span>
+        </div>
+
+      </div>
+    </CardPoke>
+
+  )
 }
 
 export default CardAllPokemons

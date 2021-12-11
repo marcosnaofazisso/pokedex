@@ -4,18 +4,8 @@ import CardAllPokemons from '../../components/cardallpokemons/CardAllPokemons'
 import ContainerAllPokemons from '../../components/cardallpokemons/ContainerAllPokemons'
 import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
 import { images } from '../../assets/data/AllPokemonImages'
+import { typeColors } from '../../assets/data/TypesColors'
 
-const vermelho = "ff0000;"
-const verde = "00ff00;"
-const azul = "0000ff;"
-const semCor = "000000;"
-
-const colors = {
-    grass: verde,
-    water: azul,
-    fire: vermelho,
-    noColor: semCor
-}
 
 function AllPokemons() {
 
@@ -44,7 +34,7 @@ function AllPokemons() {
                                 id={pokemon.id}
                                 name={pokemon.name}
                                 img={images[pokemon.name] ? images[pokemon.name] : images[-1]}
-                                color={colors[pokemon.type1] ? colors[pokemon.type1] : colors[semCor] }
+                                color={typeColors[pokemon.type1] ? typeColors[pokemon.type1] : typeColors[-1]}
                                 type1={pokemon.type1}
                                 type2={pokemon.type2}
                                 link={<Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>}
