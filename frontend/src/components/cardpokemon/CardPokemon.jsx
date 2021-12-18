@@ -10,6 +10,7 @@ export const CardOnePokemon = styled.div`
   width: 20%;
   padding: 1.4rem;
   margin: 1rem;
+  align-items: center;
   box-shadow: inset 0 0 1em white, 0 0 1em ${props => props.type};
   img {
     width: 100%;
@@ -31,29 +32,32 @@ export const ContainerOnePokemon = styled.div`
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-    background-color: white;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 function CardPokemon(props) {
-    return (
-        <ContainerOnePokemon habitat={props.type1}>
-            <CardOnePokemon type={props.color}>
-                <div>
-                    <p>#{`${props.number}`.padStart(3, `0`)}</p>
-                    <img src={props.img} alt={props.name} />
-                    <h3>{props.name}</h3>
-                    <span>{props.type1}</span><span>{props.type2 == 'None' ? null : " / " + props.type2}</span>
-                    <div>
-                        <p>HP: {props.hp}</p>
-                        <p>Attack: {props.attack}</p>
-                        <p>Defense: {props.defense}</p>
-                        <p>Speed: {props.speed}</p>
-                        <p>Special: {props.special}</p>
-                    </div>
-                </div>
-            </CardOnePokemon>
-        </ContainerOnePokemon>
-    )
+  return (
+    <ContainerOnePokemon habitat={props.type1}>
+      <CardOnePokemon type={props.color}>
+        <div>
+          <p>#{`${props.number}`.padStart(3, `0`)}</p>
+          <img src={props.img} alt={props.name} />
+          <h3>{props.name}</h3>
+          <span>{props.type1}</span><span>{props.type2 == 'None' ? null : " / " + props.type2}</span>
+          <div>
+            <p>HP: {props.hp}</p>
+            <p>Attack: {props.attack}</p>
+            <p>Defense: {props.defense}</p>
+            <p>Speed: {props.speed}</p>
+            <p>Special: {props.special}</p>
+          </div>
+        </div>
+      </CardOnePokemon>
+    </ContainerOnePokemon>
+  )
 }
 
 export default CardPokemon
