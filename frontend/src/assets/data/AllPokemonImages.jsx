@@ -27,10 +27,10 @@ import pokemon25 from '../../assets/img/pikachu.jpg'
 import pokemon26 from '../../assets/img/raichu.jpg'
 import pokemon27 from '../../assets/img/sandshrew.jpg'
 import pokemon28 from '../../assets/img/sandslash.jpg'
-import pokemon29 from '../../assets/img/nidoran-f.jpg'
+import pokemon29 from '../../assets/img/nidoran.jpg'
 import pokemon30 from '../../assets/img/nidorina.jpg'
 import pokemon31 from '../../assets/img/nidoqueen.jpg'
-import pokemon32 from '../../assets/img/nidoran-m.jpg'
+import pokemon32 from '../../assets/img/nidoram.jpg'
 import pokemon33 from '../../assets/img/nidorino.jpg'
 import pokemon34 from '../../assets/img/nidoking.jpg'
 import pokemon35 from '../../assets/img/clefairy.jpg'
@@ -184,7 +184,7 @@ export const images = {
     Nidoran: pokemon29,
     Nidorina: pokemon30,
     Nidoqueen: pokemon31,
-    Nidoran: pokemon32,
+    Nidoram: pokemon32,
     Nidorino: pokemon33,
     Nidoking: pokemon34,
     Clefairy: pokemon35,

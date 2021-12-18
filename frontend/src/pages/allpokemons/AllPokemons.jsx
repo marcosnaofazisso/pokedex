@@ -31,7 +31,7 @@ function AllPokemons() {
                         return (
                             <CardAllPokemons
                                 key={pokemon.id}
-                                id={pokemon.id}
+                                number={pokemon.number}
                                 name={pokemon.name}
                                 img={images[pokemon.name] ? images[pokemon.name] : images[-1]}
                                 color={typeColors[pokemon.type1] ? typeColors[pokemon.type1] : typeColors[-1]}
