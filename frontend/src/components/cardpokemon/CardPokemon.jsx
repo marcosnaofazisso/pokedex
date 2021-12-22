@@ -5,13 +5,13 @@ import { habitats } from '../../assets/data/TypesHabitat';
 const padrao = 'red'
 
 export const CardOnePokemon = styled.div`
-  background-color: #fff;
+  background-color: rgba(100,100,100,0.3);
   border-radius: 10px;
   width: 20%;
   padding: 1.4rem;
   margin: 1rem;
   align-items: center;
-  box-shadow: inset 0 0 1em white, 0 0 1em ${props => props.type};
+  box-shadow: inset 0 0 1.5em white, 0 0 1em ${props => props.type};
   img {
     width: 100%;
     max-width: 200px;
@@ -25,6 +25,10 @@ export const CardOnePokemon = styled.div`
     text-align: center;
     margin-top: 10px;
   }
+  &:hover {
+    box-shadow: inset 0 0 1em white, 0 0 2.5em ${props => props.type};
+  }
+  
 `;
 
 export const ContainerOnePokemon = styled.div`
