@@ -12,8 +12,9 @@ const CardPoke = styled.div`
   box-shadow: inset 0 0 1em ${mainColor}, 0 0 1em ${props => props.type};
   img {
     width: 100%;
-    max-width: 200px;
-    max-height: 200px;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
   }
   p {
     text-align: center;
