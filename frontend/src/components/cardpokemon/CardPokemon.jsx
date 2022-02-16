@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 import { habitats } from '../../assets/data/TypesHabitat';
 
-const padrao = 'red'
-
 export const CardOnePokemon = styled.div`
-  background-color: rgba(100,100,100,0.3);
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
   border-radius: 10px;
   width: 20%;
   padding: 1.4rem;
