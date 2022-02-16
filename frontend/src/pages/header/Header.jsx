@@ -4,6 +4,8 @@ import logo from '../../assets/img/logo.png'
 import Menu from '../menu/Menu';
 
 const StyledHeader = styled.header`
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
   display: inline-block;
   width: 100%;
   background-color: #ee8b8b86;
