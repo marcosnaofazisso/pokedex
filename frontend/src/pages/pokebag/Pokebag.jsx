@@ -14,6 +14,10 @@ export default function Pokebag() {
 
     return (
         <div>
+            {(poke1 != "")
+            (<h1> poke1.value </h1>)}
+            {(poke2 == "")
+            (<h1>{poke2}</h1>)}
             <CardPokebag>
                 <p>#</p>
                 <img src="" />
