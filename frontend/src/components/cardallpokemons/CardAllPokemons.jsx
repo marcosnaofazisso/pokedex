@@ -1,9 +1,18 @@
 import React from 'react'
 import { AddPokebagButton, DeletePokebagButton } from '../../assets/style/StyledPokebag';
 import { CardButton, CardPoke } from '../../assets/style/StyledPokemonGlobal';
-
+import { usePokebag } from '../context/PokebagContextProvider';
+import { dataPokemons } from '../../assets/data/DataPokemons';
+import { Link } from 'react-router-dom';
+import { PokebagContext } from '../context/PokebagContextProvider';
 
 function CardAllPokemons(props) {
+
+  const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
+
+  function addedPokemon() {
+    alert("Pokemon adicionado à sua Pokebag!")
+  }
 
   return (
     <CardPoke type={props.color}>
@@ -20,7 +29,7 @@ function CardAllPokemons(props) {
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
         <div>
-          <AddPokebagButton>+</AddPokebagButton>
+          <AddPokebagButton onClick={() => setMyPokemon(dataPokemons[props.number - 1], addedPokemon())}>+</AddPokebagButton>
           <DeletePokebagButton>-</DeletePokebagButton>
         </div>
       </div>

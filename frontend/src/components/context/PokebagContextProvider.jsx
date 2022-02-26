@@ -1,43 +1,22 @@
 import React, { useContext, createContext, useState } from 'react'
+import { dataPokemons } from '../../assets/data/DataPokemons';
 
 export const PokebagContext = createContext();
 
+export function usePokebag() {
+    const { myPokemon, setMyPokemon } = useContext(PokebagContext);
+    return { myPokemon, setMyPokemon };
+}
+
 export default function PokebagContextProvider({ children }) {
-    const [poke1, setPoke1] = useState("");
-    const [poke2, setPoke2] = useState("");
-    const [poke3, setPoke3] = useState("");
-    const [poke4, setPoke4] = useState("");
-    const [poke5, setPoke5] = useState("");
-    const [poke6, setPoke6] = useState("");
+    const [myPokemon, setMyPokemon] = useState(dataPokemons[0]);
 
     return (
-        <PokebagContext.Provider value={{
-            poke1, setPoke1,
-            poke2, setPoke2,
-            poke3, setPoke3,
-            poke4, setPoke4,
-            poke5, setPoke5,
-            poke6, setPoke6
-        }}>
+        <PokebagContext.Provider value={{ myPokemon, setMyPokemon }}>
             {children}
         </PokebagContext.Provider >
 
     )
 }
 
-export function usePokebag() {
-    const { poke1, setPoke1,
-        poke2, setPoke2,
-        poke3, setPoke3,
-        poke4, setPoke4,
-        poke5, setPoke5,
-        poke6, setPoke6 } = useContext(PokebagContext);
-    return {
-        poke1, setPoke1,
-        poke2, setPoke2,
-        poke3, setPoke3,
-        poke4, setPoke4,
-        poke5, setPoke5,
-        poke6, setPoke6
-    }
-}
+

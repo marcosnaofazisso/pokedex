@@ -7,7 +7,7 @@ export const CardPokebag = styled.div`
   width: 20%;
   padding: 1.4rem;
   margin: 1rem;
-  box-shadow: inset 0 0 1em red, 0 0 1em red;
+  box-shadow: inset 0 0 1em ${props => props.type}, 0 0 1em ${props => props.type};
   img {
     width: 100%;
     height: auto;
@@ -35,7 +35,7 @@ export const CardButtonPokebag = styled.button`
   text-decoration: none;
   color: #ffffff;
   background-color: #fccdcd;
-  box-shadow: inset 0 0 1em red, 0 0 1em red;
+  box-shadow: inset 0 0 1em red, 0 0 1em ${props => props.type};
   border: 0;
   border-radius: 35px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);

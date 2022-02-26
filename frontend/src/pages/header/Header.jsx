@@ -32,17 +32,17 @@ const Stylednovo = styled.div`
 `;
 
 function Header() {
-    return (
-        <div>
-            <StyledHeader>
-                <Stylednovo>
-                    <img src={logo} alt="logo do site"></img>
-                    <p>POKEDÉX</p>
-                </Stylednovo>
-                <Menu />
-            </StyledHeader>
-        </div>
-    )
+  return (
+    <div>
+        <StyledHeader>
+          <Stylednovo>
+            <img src={logo} alt="logo do site"></img>
+            <p>POKEDÉX</p>
+          </Stylednovo>
+          <Menu />
+        </StyledHeader>
+    </div>
+  )
 }
 
 export default Header
