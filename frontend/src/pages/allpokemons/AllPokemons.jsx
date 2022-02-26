@@ -5,6 +5,7 @@ import ContainerAllPokemons from '../../components/cardallpokemons/ContainerAllP
 import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
 import { images } from '../../assets/data/AllPokemonImages'
 import { typeColors } from '../../assets/data/TypesColors'
+import PokebagContextProvider from '../../components/context/PokebagContextProvider'
 
 
 function AllPokemons() {
