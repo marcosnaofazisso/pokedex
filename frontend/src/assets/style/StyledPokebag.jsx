@@ -52,3 +52,43 @@ export const CardButtonPokebag = styled.button`
   }
 
 `;
+
+export const AddPokebagButton = styled.button`
+  float: left;
+  margin: 5px 5px;
+  width: 30%;
+  padding: 10px 0;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #7df888;
+  border: 0;
+  border-radius: 35px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+  &:hover {
+    background-color:#46f555
+
+  }
+`;
+
+export const DeletePokebagButton = styled.button`
+  float: right;
+  margin: 5px 5px;
+  width: 30%;
+  padding: 10px 0;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #f88d7a;
+  border: 0;
+  border-radius: 35px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+  &:hover {
+    background-color: #cf5742;
+
+  }
+`;
