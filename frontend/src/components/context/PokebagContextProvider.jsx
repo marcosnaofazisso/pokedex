@@ -1,5 +1,4 @@
 import React, { useContext, createContext, useState } from 'react'
-import { dataPokemons } from '../../assets/data/DataPokemons';
 
 export const PokebagContext = createContext();
 
@@ -9,7 +8,7 @@ export function usePokebag() {
 }
 
 export default function PokebagContextProvider({ children }) {
-    const [myPokemon, setMyPokemon] = useState(dataPokemons[0]);
+    const [myPokemon, setMyPokemon] = useState();
 
     return (
         <PokebagContext.Provider value={{ myPokemon, setMyPokemon }}>

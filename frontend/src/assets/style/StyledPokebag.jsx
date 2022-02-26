@@ -1,26 +1,27 @@
-import React from "react";
 import styled from "styled-components";
 
 export const CardPokebag = styled.div`
+  font-family: 'Roboto', sans-serif; 
   background-color: #fff;
   border-radius: 10px;
   width: 20%;
   padding: 1.4rem;
   margin: 1rem;
-  box-shadow: inset 0 0 1em ${props => props.type}, 0 0 1em ${props => props.type};
+  box-shadow: inset 0 0 1em #fff, 0 0 1em ${props => props.type};
   img {
     width: 100%;
     height: auto;
     max-width: 300px;
     max-height: 300px;
   }
-  p {
-    text-align: center;
-    text-align: justify;
-  }
   h3 {
-    text-align: center;
+    font-size: 3vh;
+    font-weight: 900;
     margin-top: 10px;
+  }
+  .nameType {
+    text-align: center;
+    padding: 1vh;
   }
 `;
 
@@ -91,4 +92,24 @@ export const DeletePokebagButton = styled.button`
     background-color: #cf5742;
 
   }
+`;
+
+export const NoPokemonInPokebag = styled.div`
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.4rem;
+  margin: 1rem;
+  h1 {
+    font-size: 3vh;
+    font-weight: 900;
+    margin-top: 10px;
+  }
+
+`;
+
+export const ContainerPokebag = styled.div`
+  text-align: center;
 `;
