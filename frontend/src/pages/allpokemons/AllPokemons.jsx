@@ -5,7 +5,6 @@ import ContainerAllPokemons from '../../components/cardallpokemons/ContainerAllP
 import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
 import { images } from '../../assets/data/AllPokemonImages'
 import { typeColors } from '../../assets/data/TypesColors'
-import PokebagContextProvider from '../../components/context/PokebagContextProvider'
 
 
 function AllPokemons() {
@@ -21,7 +20,7 @@ function AllPokemons() {
         }).catch(error => {
             console.log(error)
         })
-    }, [pokemons])
+    }, [])
 
     return (
         <MainDiv>
@@ -38,6 +37,7 @@ function AllPokemons() {
                                 color={typeColors[pokemon.type1] ? typeColors[pokemon.type1] : typeColors[-1]}
                                 type1={pokemon.type1}
                                 type2={pokemon.type2}
+                                wholePokemon={pokemon}
                                 link={<Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>}
                             ></CardAllPokemons>
                         );
