@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React } from 'react'
 import { AddPokebagButton, DeletePokebagButton } from '../../assets/style/StyledPokebag';
 import { CardButton, CardPoke } from '../../assets/style/StyledPokemonGlobal';
 import { usePokebag } from '../context/PokebagContextProvider';
@@ -9,26 +9,9 @@ function CardAllPokemons(props) {
 
   const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
 
-  const [newPokemon, setNewPokemon] = useState()
-
-  const handleChange = (pokemon) => {
-    setNewPokemon({
-      "id": pokemon.id,
-      "number": pokemon.number,
-      "name": pokemon.name,
-      "type1": pokemon.type1,
-      "type2": pokemon.type2,
-      "hp": pokemon.hp,
-      "attack": pokemon.attack,
-      "defense": pokemon.defense,
-      "special": pokemon.special,
-      "speed": pokemon.speed
-
-    })
-    console.log("NEWPOKEMON: " + JSON.stringify(newPokemon))
-
-    console.log("MY POKEMON: " + JSON.stringify(myPokemon))
-  }
+  // function testa() {
+  //   console.log("MY POKEMON: " + JSON.stringify(myPokemon))
+  // }
 
   return (
     <CardPoke type={props.color}>
@@ -46,11 +29,11 @@ function CardAllPokemons(props) {
         </div>
         <div>
           <AddPokebagButton
-            onClick={() => setMyPokemon(dataPokemons[props.number - 1])}>+</AddPokebagButton>
-            {/* // onClick={() => handleChange(props.wholePokemon)}>+</AddPokebagButton> */}
-        <DeletePokebagButton>-</DeletePokebagButton>
+            onClick={() => myPokemon.push(dataPokemons[props.number - 1])}>+</AddPokebagButton>
+          <DeletePokebagButton>-</DeletePokebagButton>
+          {/* <button onClick={() => testa()}>TESTA AQUI</button> */}
+        </div>
       </div>
-    </div>
     </CardPoke >
 
   )
