@@ -7,7 +7,7 @@ import { PokebagContext } from '../context/PokebagContextProvider';
 
 function CardAllPokemons(props) {
 
-  const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
+  const { myPokemon } = usePokebag(PokebagContext);
 
   // function testa() {
   //   console.log("MY POKEMON: " + JSON.stringify(myPokemon))
@@ -28,9 +28,10 @@ function CardAllPokemons(props) {
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
         <div>
-          <AddPokebagButton
-            onClick={() => myPokemon.push(dataPokemons[props.number - 1])}>+</AddPokebagButton>
-          <DeletePokebagButton>-</DeletePokebagButton>
+          {myPokemon.length <= 6 &&
+            <AddPokebagButton
+              onClick={() => myPokemon.push(dataPokemons[props.number - 1])}>+</AddPokebagButton>}
+          {myPokemon.length > 0 && <DeletePokebagButton>-</DeletePokebagButton>}
           {/* <button onClick={() => testa()}>TESTA AQUI</button> */}
         </div>
       </div>

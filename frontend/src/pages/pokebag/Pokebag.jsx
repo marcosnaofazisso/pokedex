@@ -11,6 +11,7 @@ export default function Pokebag() {
 
     let history = useHistory();
     const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
+    var key = 0
 
     function goToDetails(id) {
         history.push("/pokemon/" + id)
@@ -45,13 +46,13 @@ export default function Pokebag() {
             <div>
                 {myPokemon.length >= 2 && myPokemon.map((myPoke) => {
                     return (
-                        <CardPokebag key={myPoke.id}
+                        <CardPokebag key={key++}
                             type={typeColors[myPoke.type1] ? typeColors[myPoke.type1] : typeColors[-1]}>
                             <div>
                                 <p>#{myPoke.number !== "" ? myPoke.number : ""}</p>
                                 <img src={images[myPoke.name ? myPoke.name : "#"]} alt={myPoke.name ? myPoke.name : "Image not found"} />
                             </div>
-                            <div class="nameType">
+                            <div className="nameType">
                                 <h3>{myPoke.name !== "" ? myPoke.name : ""}</h3>
                                 <span>{myPoke.type1 ? myPoke.type1 : ""}</span>
                             </div>

@@ -1,6 +1,5 @@
 import React from 'react'
 import ash from '../../assets/img/ash.png'
-import pikachu from '../../assets/img/pikachu.png'
 import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
 import { FormWrapper, FormBody, FormHeader, Form, FormFieldset, FormInput, FormButton, FormLink } from '../../assets/style/StyledFormGlobal'
 import { useHistory } from 'react-router'
