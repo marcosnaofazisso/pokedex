@@ -39,7 +39,7 @@ export default function Pokebag() {
                     <div className="noPokemonsHere">
                         <h1>Você ainda não possui nenhum Pokemon :( </h1>
                     </div>
-                    <button onClick={() => setMyPokemon(dataPokemons[0])}>Choose regular Bulbasaur...</button>
+                    <button onClick={() => myPokemon.push(dataPokemons[0])}>Choose regular Bulbasaur...</button>
                 </NoPokemonInPokebag>
             }
 

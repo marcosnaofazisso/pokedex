@@ -12,15 +12,12 @@ padding: 0;
             border-radius: 10px;
             background-color: #eee;
             box-shadow: inset 0 0 1.5em #ffffff, 0 0 5em #000;
-
-
         }
     
         ::-webkit-progress-value {
             height: 10px;
             border-radius: 10px;
             background-color: ${props => props.color};
-    
         }
 
     }

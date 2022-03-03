@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import { habitats } from '../../assets/data/TypesHabitat';
-import ProgressBar from '../progressbar/ProgressBar';
+import StatsBar from '../statsbar/StatsBar';
 
 export const CardOnePokemon = styled.div`
   background-color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif; 
   font-size: 18px;
   border-radius: 10px;
   width: 20%;
@@ -64,15 +64,15 @@ function CardPokemon(props) {
           </div>
           <div className="pokemonStats">
             <p>HP: {props.hp}</p>
-            <ProgressBar value={props.hp} max={590} color={props.color}></ProgressBar>
+            <StatsBar value={props.hp} max={590} color={props.color}></StatsBar>
             <p>Attack: {props.attack}</p>
-            <ProgressBar value={props.attack} max={250} color={props.color}></ProgressBar>
+            <StatsBar value={props.attack} max={250} color={props.color}></StatsBar>
             <p>Defense: {props.defense}</p>
-            <ProgressBar value={props.defense} max={150} color={props.color}></ProgressBar>
+            <StatsBar value={props.defense} max={150} color={props.color}></StatsBar>
             <p>Speed: {props.speed}</p>
-            <ProgressBar value={props.speed} max={200} color={props.color}></ProgressBar>
+            <StatsBar value={props.speed} max={200} color={props.color}></StatsBar>
             <p>Special: {props.special}</p>
-            <ProgressBar value={props.special} max={200} color={props.color}></ProgressBar>
+            <StatsBar value={props.special} max={200} color={props.color}></StatsBar>
           </div>
         </div>
       </CardOnePokemon>
