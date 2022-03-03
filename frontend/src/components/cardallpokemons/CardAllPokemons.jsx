@@ -2,7 +2,6 @@ import { React } from 'react'
 import { AddPokebagButton, DeletePokebagButton } from '../../assets/style/StyledPokebag';
 import { CardButton, CardPoke } from '../../assets/style/StyledPokemonGlobal';
 import { usePokebag } from '../context/PokebagContextProvider';
-import { dataPokemons } from '../../assets/data/DataPokemons';
 import { PokebagContext } from '../context/PokebagContextProvider';
 
 function CardAllPokemons(props) {
@@ -25,10 +24,6 @@ function CardAllPokemons(props) {
     setMyPokemon(myNewPokemon)
   }
 
-  // function testa() {
-  //   console.log("MY POKEMON: " + JSON.stringify(myPokemon))
-  // }
-
   return (
     <CardPoke type={props.color}>
       <div>
@@ -49,7 +44,6 @@ function CardAllPokemons(props) {
               onClick={() => handleAdd(props.wholePokemon)}>+</AddPokebagButton>}
           {myPokemon.length > 0 && <DeletePokebagButton
             onClick={() => handleRemove(props.wholePokemon)}>-</DeletePokebagButton>}
-          {/* <button onClick={() => testa()}>TESTA AQUI</button> */}
         </div>
       </div>
     </CardPoke >
