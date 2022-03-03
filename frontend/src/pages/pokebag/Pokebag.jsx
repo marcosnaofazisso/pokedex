@@ -24,7 +24,7 @@ export default function Pokebag() {
                         <p>#{myPokemon[0].number !== "" ? myPokemon[0].number : ""}</p>
                         <img src={images[myPokemon[0].name ? myPokemon[0].name : "#"]} alt={myPokemon[0].name ? myPokemon[0].name : "Not Found"} />
                     </div>
-                    <div class="nameType">
+                    <div className="nameType">
                         <h3>{myPokemon[0].name !== "" ? myPokemon[0].name : ""}</h3>
                         <span>{myPokemon[0].type1 ? myPokemon[0].type1 : ""}</span>
                     </div>
@@ -35,7 +35,7 @@ export default function Pokebag() {
             {
                 (myPokemon === "" || myPokemon.length === 0 || myPokemon == null) &&
                 <NoPokemonInPokebag>
-                    <div class="noPokemonsHere">
+                    <div className="noPokemonsHere">
                         <h1>Você ainda não possui nenhum Pokemon :( </h1>
                     </div>
                     <button onClick={() => setMyPokemon(dataPokemons[0])}>Choose regular Bulbasaur...</button>
@@ -45,7 +45,8 @@ export default function Pokebag() {
             <div>
                 {myPokemon.length >= 2 && myPokemon.map((myPoke) => {
                     return (
-                        <CardPokebag type={typeColors[myPoke.type1] ? typeColors[myPoke.type1] : typeColors[-1]}>
+                        <CardPokebag key={myPoke.id}
+                            type={typeColors[myPoke.type1] ? typeColors[myPoke.type1] : typeColors[-1]}>
                             <div>
                                 <p>#{myPoke.number !== "" ? myPoke.number : ""}</p>
                                 <img src={images[myPoke.name ? myPoke.name : "#"]} alt={myPoke.name ? myPoke.name : "Image not found"} />

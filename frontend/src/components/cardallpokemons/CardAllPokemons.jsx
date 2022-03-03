@@ -20,7 +20,7 @@ function CardAllPokemons(props) {
           <p>#{`${props.number}`.padStart(3, `0`)}</p>
           <img src={props.img} alt={props.name} />
         </div>
-        <div class="nameType">
+        <div className="nameType">
           <h3>{props.name == "Nidoram" ? "Nidoran" : props.name}</h3>
           <span>{props.type1}</span><span>{props.type2 == 'None' ? null : " / " + props.type2}</span>
         </div>
