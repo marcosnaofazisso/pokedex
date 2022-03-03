@@ -8,7 +8,7 @@ export function usePokebag() {
 }
 
 export default function PokebagContextProvider({ children }) {
-    const [myPokemon, setMyPokemon] = useState();
+    const [myPokemon, setMyPokemon] = useState([]);
 
     return (
         <PokebagContext.Provider value={{ myPokemon, setMyPokemon }}>

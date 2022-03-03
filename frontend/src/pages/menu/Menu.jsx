@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { usePokebag } from '../../components/context/PokebagContextProvider';
 
-const MenuS = styled.nav`
+const MenuStyled = styled.nav`
   margin-top: 7rem;
   width: 100%;
   height: 8rem;
@@ -41,17 +40,15 @@ const MenuS = styled.nav`
 `;
 function Menu() {
 
-  const { myPokemon, setMyPokemon } = usePokebag();
-
   return (
     <div>
-      <MenuS>
+      <MenuStyled>
         <ul>
           <li><Link to="/">HOME</Link></li>
           <li><Link to="/allpokemons">POKÉDEX</Link></li>
           <li><Link to="/pokebag" >POKÉBAG</Link></li>
         </ul>
-      </MenuS>
+      </MenuStyled>
 
     </div>
   )

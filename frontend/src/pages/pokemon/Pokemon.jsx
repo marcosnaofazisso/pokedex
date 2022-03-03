@@ -20,10 +20,12 @@ function Pokemon(props) {
         }).then((resp) => {
             setPokemon(resp)
             console.log(resp)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }).catch(error => {
             console.log(error)
         })
-    }, [pokemon])
+    }, [])
+
 
     return (
         <div>
