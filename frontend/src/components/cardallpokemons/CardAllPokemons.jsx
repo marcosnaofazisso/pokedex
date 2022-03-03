@@ -9,6 +9,22 @@ function CardAllPokemons(props) {
 
   const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
 
+  const handleAdd = (pokemon) => {
+    if (!myPokemon.includes(pokemon)) {
+      myPokemon.push(pokemon)
+    } else {
+      alert(`Você já possui ${pokemon.name} em sua Pokebag!`)
+      return
+    }
+    console.log("MY POKEMON: " + JSON.stringify(myPokemon))
+  }
+
+  const handleRemove = (pokemon) => {
+    const myNewPokemon = myPokemon.filter((poke) => poke.id !== pokemon.id);
+    alert(`Você retirou ${pokemon.name} da sua Pokebag!`)
+    setMyPokemon(myNewPokemon)
+  }
+
   // function testa() {
   //   console.log("MY POKEMON: " + JSON.stringify(myPokemon))
   // }
@@ -28,9 +44,11 @@ function CardAllPokemons(props) {
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
         <div>
-          <AddPokebagButton
-            onClick={() => myPokemon.push(dataPokemons[props.number - 1])}>+</AddPokebagButton>
-          <DeletePokebagButton>-</DeletePokebagButton>
+          {myPokemon.length <= 6 &&
+            <AddPokebagButton
+              onClick={() => handleAdd(props.wholePokemon)}>+</AddPokebagButton>}
+          {myPokemon.length > 0 && <DeletePokebagButton
+            onClick={() => handleRemove(props.wholePokemon)}>-</DeletePokebagButton>}
           {/* <button onClick={() => testa()}>TESTA AQUI</button> */}
         </div>
       </div>
