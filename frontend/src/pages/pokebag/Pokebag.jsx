@@ -10,7 +10,7 @@ import { PokebagContext } from '../../components/context/PokebagContextProvider'
 export default function Pokebag() {
 
     let history = useHistory();
-    const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
+    const { myPokemon } = usePokebag(PokebagContext);
     var key = 0
 
     function goToDetails(id) {

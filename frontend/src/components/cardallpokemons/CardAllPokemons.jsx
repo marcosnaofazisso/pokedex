@@ -19,9 +19,17 @@ function CardAllPokemons(props) {
   }
 
   const handleRemove = (pokemon) => {
-    const myNewPokemon = myPokemon.filter((poke) => poke.id !== pokemon.id);
-    alert(`Você retirou ${pokemon.name} da sua Pokebag!`)
-    setMyPokemon(myNewPokemon)
+    const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.id);
+
+    if (isInPokebag.length >= 1) {
+      const myNewPokemon = myPokemon.filter((poke) => poke.id !== pokemon.id);
+      alert(`Você retirou ${pokemon.name} da sua Pokebag!`)
+      setMyPokemon(myNewPokemon)
+
+    } else (
+      alert(`Você ainda não possui ${pokemon.name} em sua Pokebag!`)
+    )
+
   }
 
   return (
@@ -32,8 +40,8 @@ function CardAllPokemons(props) {
           <img src={props.img} alt={props.name} />
         </div>
         <div className="nameType">
-          <h3>{props.name == "Nidoram" ? "Nidoran" : props.name}</h3>
-          <span>{props.type1}</span><span>{props.type2 == 'None' ? null : " / " + props.type2}</span>
+          <h3>{props.name === "Nidoram" ? "Nidoran" : props.name}</h3>
+          <span>{props.type1}</span><span>{props.type2 === 'None' ? null : " / " + props.type2}</span>
         </div>
         <div>
           <CardButton type={props.color}>{props.link}</CardButton>
