@@ -11,6 +11,7 @@ function CardAllPokemons(props) {
   const handleAdd = (pokemon) => {
     if (!myPokemon.includes(pokemon)) {
       myPokemon.push(pokemon)
+      alert(`Você adicionou ${pokemon.name} em sua Pokebag!`)
     } else {
       alert(`Você já possui ${pokemon.name} em sua Pokebag!`)
       return
@@ -32,6 +33,20 @@ function CardAllPokemons(props) {
 
   }
 
+  const handleHavePokemon = (pokemon, condition) => {
+    const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.id);
+
+    if (condition === "add") {
+      var boolean = isInPokebag.length >= 1 ? false : true
+      return boolean
+    }
+    else if (condition === "remove")
+      var boolean = isInPokebag.length >= 1 ? true : false
+    return boolean
+
+  }
+
+
   return (
     <CardPoke type={props.color}>
       <div>
@@ -46,11 +61,11 @@ function CardAllPokemons(props) {
         <div>
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
-        <div>
-          {myPokemon.length <= 6 &&
+        <div class="addAndRemoveButtons">
+          {handleHavePokemon(props.wholePokemon, "add") && myPokemon.length <= 6 &&
             <AddPokebagButton
               onClick={() => handleAdd(props.wholePokemon)}>+</AddPokebagButton>}
-          {myPokemon.length > 0 && <DeletePokebagButton
+          {handleHavePokemon(props.wholePokemon, "remove") && myPokemon.length > 0 && <DeletePokebagButton
             onClick={() => handleRemove(props.wholePokemon)}>-</DeletePokebagButton>}
         </div>
       </div>

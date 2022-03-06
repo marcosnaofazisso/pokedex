@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CardPokebag = styled.div`
+display: inline-block;
   font-family: 'Roboto', sans-serif; 
   background-color: #fff;
   border-radius: 10px;
@@ -24,6 +25,8 @@ export const CardPokebag = styled.div`
     padding: 1vh;
   }
 `;
+
+
 
 export const CardButtonPokebag = styled.button`
   display: block;
@@ -55,9 +58,8 @@ export const CardButtonPokebag = styled.button`
 `;
 
 export const AddPokebagButton = styled.button`
-  float: left;
   margin: 5px 5px;
-  width: 30%;
+  width: 50%;
   padding: 10px 0;
   font-family: inherit;
   font-size: 20px;
@@ -75,9 +77,8 @@ export const AddPokebagButton = styled.button`
 `;
 
 export const DeletePokebagButton = styled.button`
-  float: right;
   margin: 5px 5px;
-  width: 30%;
+  width: 50%;
   padding: 10px 0;
   font-family: inherit;
   font-size: 20px;
@@ -98,18 +99,13 @@ export const NoPokemonInPokebag = styled.div`
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   text-align: center;
-  background-color: #fff;
+  background-color:#fff;
   border-radius: 10px;
   padding: 1.4rem;
-  margin: 1rem;
   h1 {
     font-size: 3vh;
     font-weight: 900;
     margin-top: 10px;
   }
 
-`;
-
-export const ContainerPokebag = styled.div`
-  text-align: center;
 `;

@@ -24,7 +24,7 @@ function AllPokemons() {
 
     return (
         <MainDiv>
-            <h1>Pokemons</h1>
+            <h1 className="headerPokemons">Pokemons</h1>
             <MainContainer>
                 <ContainerAllPokemons>
                     {pokemons.map((pokemon) => {

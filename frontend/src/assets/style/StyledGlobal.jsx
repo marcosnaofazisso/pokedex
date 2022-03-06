@@ -8,6 +8,17 @@ export const MainDiv = styled.div`
   width: 100%;
   max-width: 1400px;
   margin-top: 5rem;
+  .headerPokemons {
+    text-align: center;
+    font-weight: 900;
+    font-size: 4rem;
+  }
+  .headerPokebag {
+    text-align: center;
+    font-weight: 900;
+    font-size: 4rem;
+  }
+ 
 `;
 
 export const MainContainer = styled.div`

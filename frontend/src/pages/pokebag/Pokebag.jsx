@@ -1,11 +1,9 @@
 import { React } from 'react'
 import { useHistory } from 'react-router';
-import { usePokebag } from '../../components/context/PokebagContextProvider';
+import { usePokebag, PokebagContext } from '../../components/context/PokebagContextProvider';
 import { images } from '../../assets/data/AllPokemonImages';
 import { typeColors } from '../../assets/data/TypesColors';
-import { CardPokebag, CardButtonPokebag, NoPokemonInPokebag, ContainerPokebag } from '../../assets/style/StyledPokebag';
-import { dataPokemons } from '../../assets/data/DataPokemons';
-import { PokebagContext } from '../../components/context/PokebagContextProvider';
+import { CardPokebag, CardButtonPokebag, NoPokemonInPokebag } from '../../assets/style/StyledPokebag';
 
 export default function Pokebag() {
 
@@ -18,7 +16,7 @@ export default function Pokebag() {
     }
 
     return (
-        <ContainerPokebag>
+        <>
             {(myPokemon.length > 0 && myPokemon.length <= 1) &&
                 <CardPokebag type={typeColors[myPokemon[0].type1] ? typeColors[myPokemon[0].type1] : typeColors[-1]}>
                     <div>
@@ -33,13 +31,9 @@ export default function Pokebag() {
                         onClick={() => goToDetails(myPokemon[0].number)}>Detalhes</CardButtonPokebag>
                 </CardPokebag>
             }
-            {
-                (myPokemon === "" || myPokemon.length === 0 || myPokemon == null) &&
+            {(myPokemon === "" || myPokemon.length === 0 || myPokemon == null) &&
                 <NoPokemonInPokebag>
-                    <div className="noPokemonsHere">
-                        <h1>Você ainda não possui nenhum Pokemon :( </h1>
-                    </div>
-                    <button onClick={() => myPokemon.push(dataPokemons[0])}>Choose regular Bulbasaur...</button>
+                    <h1>Você ainda não possui nenhum Pokemon :( </h1>
                 </NoPokemonInPokebag>
             }
 
@@ -65,7 +59,7 @@ export default function Pokebag() {
 
             </div>
 
-        </ContainerPokebag >
+        </>
     )
 }
 
