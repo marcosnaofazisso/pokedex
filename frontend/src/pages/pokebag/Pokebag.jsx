@@ -9,7 +9,6 @@ export default function Pokebag() {
 
     let history = useHistory();
     const { myPokemon } = usePokebag(PokebagContext);
-    var key = 0
 
     function goToDetails(id) {
         history.push("/pokemon/" + id)
@@ -40,7 +39,7 @@ export default function Pokebag() {
             <div>
                 {myPokemon.length >= 2 && myPokemon.map((myPoke) => {
                     return (
-                        <CardPokebag key={key++}
+                        <CardPokebag key={myPoke.id}
                             type={typeColors[myPoke.type1] ? typeColors[myPoke.type1] : typeColors[-1]}>
                             <div>
                                 <p>#{myPoke.number !== "" ? myPoke.number : ""}</p>

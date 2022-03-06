@@ -41,7 +41,7 @@ function CardAllPokemons(props) {
       return boolean
     }
     else if (condition === "remove")
-      var boolean = isInPokebag.length >= 1 ? true : false
+      boolean = isInPokebag.length >= 1 ? true : false
     return boolean
 
   }

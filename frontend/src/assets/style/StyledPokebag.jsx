@@ -24,6 +24,7 @@ display: inline-block;
     text-align: center;
     padding: 1vh;
   }
+
 `;
 
 
