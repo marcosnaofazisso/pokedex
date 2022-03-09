@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from 'styled-components';
 
-const ModalDiv = styled.div`
+export const ModalDiv = styled.div`
   position: fixed;
   left: 0;
   top: 0;
@@ -13,43 +12,59 @@ const ModalDiv = styled.div`
   justify-content: center;
 `;
 
-const ModalContent = styled.div`
+export const ModalContent = styled.div`
   width: 950px;
   background-color: #fff;
   max-height: calc(100vh - 150px);
   overflow-y: auto;
 `;
 
-const ModalHeader = styled.div`
+export const ModalHeader = styled.div`
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-const ModalBody = styled.div`
+export const ModalBody = styled.div`
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  text-align: center;
+  h3 {
+    display: inline-block;
+  }
+
 `;
-const ModalFooter = styled.div`
+export const ModalFooter = styled.div`
   padding: 10px;
+  text-align: center;
+
 `;
 
-export default function Modal() {
-    return (
-        <ModalDiv>
-            <ModalContent>
-                <ModalHeader>
-                    <h1>Header</h1>
-                </ModalHeader>
-                <ModalBody>
-                    <h1>Body</h1>
-                </ModalBody>
-                <ModalFooter>
-                    <h1>Footer</h1>
-                </ModalFooter>
-            </ModalContent>
-        </ModalDiv>
-    )
-}
+export const ModalButton = styled.button`
+  margin: 5px 5px;
+  width: 30%;
+  padding: 10px 0;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #585858;
+  box-shadow: inset 0 0 1em #fff, 0 0 1em ${props => props.type};
+  border: 0;
+  border-radius: 35px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
+  &:hover {
+    box-shadow: 0 3px 3px #000;
+    transform: translate(0, 0px);
+  }
+  a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+`;

@@ -19,7 +19,7 @@ export default function Pokebag() {
             {(myPokemon.length > 0 && myPokemon.length <= 1) &&
                 <CardPokebag type={typeColors[myPokemon[0].type1] ? typeColors[myPokemon[0].type1] : typeColors[-1]}>
                     <div>
-                        <p>#{myPokemon[0].number !== "" ? myPokemon[0].number : ""}</p>
+                        <p>#{myPokemon[0].number !== "" ? `${myPokemon[0].number}`.padStart(3, `0`) : ""}</p>
                         <img src={images[myPokemon[0].name ? myPokemon[0].name : "#"]} alt={myPokemon[0].name ? myPokemon[0].name : "Not Found"} />
                     </div>
                     <div className="nameType">
@@ -42,7 +42,7 @@ export default function Pokebag() {
                         <CardPokebag key={myPoke.id}
                             type={typeColors[myPoke.type1] ? typeColors[myPoke.type1] : typeColors[-1]}>
                             <div>
-                                <p>#{myPoke.number !== "" ? myPoke.number : ""}</p>
+                                <p>#{myPoke.number !== "" ? `${myPoke.number}`.padStart(3, `0`) : ""}</p>
                                 <img src={images[myPoke.name ? myPoke.name : "#"]} alt={myPoke.name ? myPoke.name : "Image not found"} />
                             </div>
                             <div className="nameType">
