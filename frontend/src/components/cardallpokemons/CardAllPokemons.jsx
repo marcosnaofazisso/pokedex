@@ -74,7 +74,6 @@ function CardAllPokemons(props) {
 
   }
 
-
   return (
     <CardPoke type={props.color}>
       <div>

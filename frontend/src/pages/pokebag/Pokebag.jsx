@@ -54,8 +54,6 @@ export default function Pokebag() {
                         </CardPokebag>
                     );
                 })}
-
-
             </div>
 
         </>
