@@ -23,6 +23,9 @@ export const CardPoke = styled.div`
     text-align: center;
     padding: 1vh;
   }
+  .addAndRemoveButtons {
+    text-align: center;
+  }
 `;
 
 export const CardButton = styled.button`

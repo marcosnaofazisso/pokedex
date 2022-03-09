@@ -60,7 +60,7 @@ function CardPokemon(props) {
             <img src={props.img} alt={props.name} />
             <h3>{props.name}</h3>
             <span>{props.type1}</span>
-            <span>{props.type2 == 'None' ? null : " / " + props.type2}</span>
+            <span>{props.type2 === 'None' ? null : " / " + props.type2}</span>
           </div>
           <div className="pokemonStats">
             <p>HP: {props.hp}</p>
