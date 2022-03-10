@@ -51,7 +51,7 @@ export const ModalButton = styled.button`
   font-weight: 700;
   text-decoration: none;
   color: #ffffff;
-  background-color: #585858;
+  background-color: #838383;
   box-shadow: inset 0 0 1em #fff, 0 0 1em ${props => props.type};
   border: 0;
   border-radius: 35px;

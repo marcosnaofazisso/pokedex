@@ -3,7 +3,7 @@ import { AddPokebagButton, DeletePokebagButton } from '../../assets/style/Styled
 import { CardButton, CardPoke } from '../../assets/style/StyledPokemonGlobal';
 import { usePokebag } from '../context/PokebagContextProvider';
 import { PokebagContext } from '../context/PokebagContextProvider';
-import { ModalDiv, ModalHeader, ModalFooter, ModalBody, ModalContent, ModalButton } from '../modal/Modal';
+import { ModalDiv, ModalHeader, ModalFooter, ModalBody, ModalContent, ModalButton } from '../../assets/style/StyledModal';
 
 function CardAllPokemons(props) {
 
@@ -11,26 +11,22 @@ function CardAllPokemons(props) {
 
   const [modal, setModal] = useState({
     showModal: false,
-    pokeName: "",
-    textType: "",
-    article: ""
+    message: ""
   })
 
   const handleAdd = (pokemon) => {
     setModal({
       showModal: !modal.showModal,
-      pokeName: pokemon.name,
-      textType: "adicionou",
-      article: "à"
+      message: `Você adicionou ${pokemon.name} à sua Pokebag!`
+
     })
     if (!myPokemon.includes(pokemon)) {
       myPokemon.push(pokemon)
     } else {
       setModal({
         showModal: !modal.showModal,
-        pokeName: pokemon.name,
-        textType: "já possui",
-        article: "em"
+        message: `Você já possui ${pokemon.name} em sua Pokebag!`
+
       })
     }
     console.log("MY POKEMON: " + JSON.stringify(myPokemon))
@@ -39,9 +35,8 @@ function CardAllPokemons(props) {
   const handleRemove = (pokemon) => {
     setModal({
       showModal: !modal.showModal,
-      pokeName: pokemon.name,
-      textType: "removeu",
-      article: "de"
+      message: `Você removeu ${pokemon.name} de sua Pokebag!`
+
     })
 
     const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.id);
@@ -53,9 +48,8 @@ function CardAllPokemons(props) {
     } else {
       setModal({
         showModal: !modal.showModal,
-        pokeName: pokemon.name,
-        textType: "ainda não possui",
-        article: "em"
+        message: `Você ainda não possui ${pokemon.name} em sua Pokebag!`
+
       })
     }
 
@@ -89,7 +83,7 @@ function CardAllPokemons(props) {
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
         <div class="addAndRemoveButtons">
-          {handleHavePokemon(props.wholePokemon, "add") && myPokemon.length <= 6 &&
+          {handleHavePokemon(props.wholePokemon, "add") && myPokemon.length < 6 &&
             <AddPokebagButton
               onClick={() => handleAdd(props.wholePokemon)}>+</AddPokebagButton>}
           {handleHavePokemon(props.wholePokemon, "remove") && myPokemon.length > 0 && <DeletePokebagButton
@@ -99,18 +93,22 @@ function CardAllPokemons(props) {
           <ModalDiv>
             <ModalContent>
               <ModalHeader>
-                <h1>Boa! ✅</h1>
+                {myPokemon.length <= 5 && <h1>Boa! ✅</h1>}
+                {myPokemon.length > 5 && <h1>Esse foi o ultimo 😞</h1>}
               </ModalHeader>
               <ModalBody>
-                <h3>Você {modal.textType} {modal.pokeName} {modal.article} sua Pokebag!</h3>
+                <h3>{modal.message}</h3>
+                {(myPokemon.length === 0) &&
+                  <p>Sua Pokebag está vazia.</p>}
+                {(myPokemon.length < 6 && myPokemon.length > 0) &&
+                  <p>Total na Pokebag: {myPokemon.length} (máx: 6)</p>}
+                {(myPokemon.length >= 6) && <p>Você encheu sua Pokebag. Não poderá adicionar mais pokemons🚫</p>}
               </ModalBody>
               <ModalFooter>
                 <ModalButton onClick={() => setModal({
                   showModal: false,
-                  pokeName: "",
-                  textType: "",
-                  article: ""
-                })}>Cancelar</ModalButton>
+                  message: ""
+                })}>Ok</ModalButton>
               </ModalFooter>
             </ModalContent>
           </ModalDiv>}
