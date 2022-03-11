@@ -1,0 +1,5 @@
+br\com\pokemon\resource\bo\PokemonBO.class
+br\com\pokemon\resource\to\PokemonTO.class
+br\com\pokemon\resource\dao\ConnectionFactory.class
+br\com\pokemon\resource\dao\PokemonDAO.class
+br\com\pokemon\resource\PokemonResource.class
