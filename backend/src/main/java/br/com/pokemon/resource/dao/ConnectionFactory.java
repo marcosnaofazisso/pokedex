@@ -13,9 +13,9 @@ public class ConnectionFactory {
 		try {
 			System.out.println("Conectando....................");
 			
-			String url = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
-			String username = "RM86904";
-			String password = "220295";
+			String url = "";
+			String username = "";
+			String password = "";
 
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
