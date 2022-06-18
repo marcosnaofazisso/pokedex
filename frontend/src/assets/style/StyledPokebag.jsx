@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const CardPokebag = styled.div`
-display: inline-block;
+  display: inline-block;
   font-family: 'Roboto', sans-serif; 
   background-color: #fff;
   border-radius: 10px;
   min-width: 20%;
-  padding: 1.4rem;
+  padding: 1rem;
   margin: 1rem;
   box-shadow: inset 0 0 1em #fff, 0 0 1em ${props => props.type};
   img {
