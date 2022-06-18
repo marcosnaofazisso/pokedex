@@ -5,6 +5,7 @@ import { usePokebag } from '../context/PokebagContextProvider';
 import { PokebagContext } from '../context/PokebagContextProvider';
 import { ModalDiv, ModalHeader, ModalFooter, ModalBody, ModalContent, ModalButton } from '../../assets/style/StyledModal';
 
+
 function CardAllPokemons(props) {
 
   const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
@@ -15,20 +16,21 @@ function CardAllPokemons(props) {
   })
 
   const handleAdd = (pokemon) => {
+
     setModal({
       showModal: !modal.showModal,
       message: `Você adicionou ${pokemon.name} à sua Pokebag!`
 
     })
+
     if (!myPokemon.includes(pokemon)) {
       myPokemon.push(pokemon)
-    } else {
-      setModal({
-        showModal: !modal.showModal,
-        message: `Você já possui ${pokemon.name} em sua Pokebag!`
-
-      })
+      
     }
+
+    const myNewPokemon = myPokemon
+    setMyPokemon(myNewPokemon)
+    
     console.log("MY POKEMON: " + JSON.stringify(myPokemon))
   }
 
@@ -45,21 +47,19 @@ function CardAllPokemons(props) {
       const myNewPokemon = myPokemon.filter((poke) => poke.id !== pokemon.id);
       setMyPokemon(myNewPokemon)
 
-    } else {
-      setModal({
-        showModal: !modal.showModal,
-        message: `Você ainda não possui ${pokemon.name} em sua Pokebag!`
-
-      })
     }
+
 
   }
 
-  const handleHavePokemon = (pokemon, condition) => {
+  const handleHavePokemon = (pokemon, condition, length) => {
+    if (length >= 6) {
+      return false
+    }
     const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.id);
 
     if (condition === "add") {
-      var boolean = isInPokebag.length >= 1 ? false : true
+      var boolean = isInPokebag.length === 0 ? true : false
       return boolean
     }
     else if (condition === "remove")
@@ -83,7 +83,7 @@ function CardAllPokemons(props) {
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
         <div class="addAndRemoveButtons">
-          {handleHavePokemon(props.wholePokemon, "add") && myPokemon.length < 6 &&
+          {handleHavePokemon(props.wholePokemon, "add", myPokemon.length) &&
             <AddPokebagButton
               onClick={() => handleAdd(props.wholePokemon)}>+</AddPokebagButton>}
           {handleHavePokemon(props.wholePokemon, "remove") && myPokemon.length > 0 && <DeletePokebagButton

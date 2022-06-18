@@ -5,6 +5,7 @@ import { images } from '../../assets/data/AllPokemonImages';
 import { typeColors } from '../../assets/data/TypesColors';
 import { CardPokebag, CardButtonPokebag, NoPokemonInPokebag } from '../../assets/style/StyledPokebag';
 
+
 export default function Pokebag() {
 
     let history = useHistory();
