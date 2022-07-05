@@ -25,12 +25,12 @@ function CardAllPokemons(props) {
 
     if (!myPokemon.includes(pokemon)) {
       myPokemon.push(pokemon)
-      
+
     }
 
     const myNewPokemon = myPokemon
     setMyPokemon(myNewPokemon)
-    
+
     console.log("MY POKEMON: " + JSON.stringify(myPokemon))
   }
 
@@ -41,10 +41,10 @@ function CardAllPokemons(props) {
 
     })
 
-    const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.id);
+    const isInPokebag = myPokemon.filter((poke) => poke.number === pokemon.number);
 
     if (isInPokebag.length >= 1) {
-      const myNewPokemon = myPokemon.filter((poke) => poke.id !== pokemon.id);
+      const myNewPokemon = myPokemon.filter((poke) => poke.number !== pokemon.number);
       setMyPokemon(myNewPokemon)
 
     }
@@ -56,7 +56,7 @@ function CardAllPokemons(props) {
     if (length >= 6) {
       return false
     }
-    const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.id);
+    const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.number);
 
     if (condition === "add") {
       var boolean = isInPokebag.length === 0 ? true : false
