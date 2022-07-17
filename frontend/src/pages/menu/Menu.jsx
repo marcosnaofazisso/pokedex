@@ -37,6 +37,12 @@ const MenuStyled = styled.nav`
     padding-bottom: 0.25rem;
     border-bottom: 4px solid #e25d5d;
   }
+  @media (max-width: 800px) {
+    a {
+    font-size: 1.2rem;
+  }
+
+  }
 `;
 function Menu() {
 

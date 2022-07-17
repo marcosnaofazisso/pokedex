@@ -35,6 +35,19 @@ export const CardOnePokemon = styled.div`
   &:hover {
     box-shadow: inset 0 0 1em white, 0 0 2.5em ${props => props.type};
   }
+
+  @media (max-width: 1300px) {
+    width: 30%;
+
+}
+  @media (max-width: 1000px) {
+    width: 50%;
+
+}
+  @media (max-width: 800px) {
+    width: 70%;
+
+}
   
 `;
 

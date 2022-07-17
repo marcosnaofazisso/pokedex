@@ -32,6 +32,7 @@ function AllPokemons() {
             <h1 className="headerPokemons">Pokemons</h1>
             <MainContainer>
                 <ContainerAllPokemons>
+                    {pokemons.length < 1 && (<h1>Carregando...</h1>)}
                     {Object.values(pokemons).map((pokemon) => {
                         return (
                             <CardAllPokemons

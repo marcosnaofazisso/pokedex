@@ -16,6 +16,14 @@ const StyledHeader = styled.header`
     width: 160px;
     padding: 10px 195px 0 0;
   }
+  @media (max-width: 800px) {
+    text-align: center;
+    img {
+      margin: auto;
+      height: 120px;
+     width: 120px;
+  }
+}
 `;
 
 const Stylednovo = styled.div`
@@ -29,6 +37,16 @@ const Stylednovo = styled.div`
     font-size: 35px;
     font-weight: bold;
   }
+  @media (max-width: 800px) {
+    p {
+      display: none;
+    }
+    img {
+      height: 100px;
+      width: 100px;
+      margin-left: 100px;
+    }
+}
 `;
 
 function Header() {

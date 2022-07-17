@@ -18,6 +18,12 @@ export const MainDiv = styled.div`
     font-weight: 900;
     font-size: 4rem;
   }
+  @media (max-width: 800px) {
+    .headerPokemons {
+    font-size: 3rem;
+
+  }
+}
  
 `;
 

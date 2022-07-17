@@ -3,10 +3,15 @@ import styled from "styled-components";
 export const CardPoke = styled.div`
   background-color: #fff;
   border-radius: 10px;
-  width: 20%;
+  /* max-width: 25%; */
   padding: 1.4rem;
   margin: 1rem;
   box-shadow: inset 0 0 1em #fff, 0 0 1em ${props => props.type};
+
+  @media (max-width: 800px) {
+    max-width: 100%;
+
+  }
   img {
     width: 100%;
     height: auto;
@@ -26,6 +31,8 @@ export const CardPoke = styled.div`
   .addAndRemoveButtons {
     text-align: center;
   }
+
+
 `;
 
 export const CardButton = styled.button`
