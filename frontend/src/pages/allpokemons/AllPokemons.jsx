@@ -12,14 +12,19 @@ function AllPokemons() {
     const [pokemons, setPokemons] = useState([])
 
     useEffect(() => {
-        fetch("/rest/pokemons").then((response) => {
-            return response.json()
-        }).then((response) => {
-            setPokemons(response)
-            console.log(response)
-        }).catch(error => {
-            console.log(error)
-        })
+        const getProjects = async () => {
+            try {
+                const response = await fetch("https://pokedex-requests.herokuapp.com/pokemons");
+                const data = await response.json()
+                setPokemons(data);
+                console.log(JSON.stringify(data));
+
+            } catch (error) {
+                console.log("Error:", error)
+            }
+        }
+        getProjects();
+
     }, [])
 
     return (
@@ -27,10 +32,10 @@ function AllPokemons() {
             <h1 className="headerPokemons">Pokemons</h1>
             <MainContainer>
                 <ContainerAllPokemons>
-                    {pokemons.map((pokemon) => {
+                    {Object.values(pokemons).map((pokemon) => {
                         return (
                             <CardAllPokemons
-                                key={pokemon.id}
+                                key={pokemon.number}
                                 number={pokemon.number}
                                 name={pokemon.name}
                                 img={images[pokemon.name] ? images[pokemon.name] : images[-1]}
@@ -38,7 +43,7 @@ function AllPokemons() {
                                 type1={pokemon.type1}
                                 type2={pokemon.type2}
                                 wholePokemon={pokemon}
-                                link={<Link title="See pokemon" to={`/pokemon/${pokemon.id}`}>Ver detalhes</Link>}
+                                link={<Link title="See pokemon" to={`/pokemon/${pokemon.number}`}>Ver detalhes</Link>}
                             ></CardAllPokemons>
                         );
                     })}

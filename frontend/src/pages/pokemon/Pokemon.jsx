@@ -15,7 +15,7 @@ function Pokemon(props) {
     const [pokemon, setPokemon] = useState([])
 
     useEffect(() => {
-        fetch("/rest/pokemons/" + id).then((resp) => {
+        fetch("https://pokedex-requests.herokuapp.com/pokemons/" + id).then((resp) => {
             return resp.json()
         }).then((resp) => {
             setPokemon(resp)
@@ -30,7 +30,7 @@ function Pokemon(props) {
     return (
         <div>
             <CardPokemon
-                key={pokemon.id}
+                key={pokemon.number}
                 number={pokemon.number}
                 name={pokemon.name}
                 img={images[pokemon.name] ? images[pokemon.name] : images[-1]}
