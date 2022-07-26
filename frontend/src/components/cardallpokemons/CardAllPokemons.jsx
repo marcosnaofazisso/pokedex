@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { AddPokebagButton, DeletePokebagButton } from '../../assets/style/StyledPokebag';
 import { CardButton, CardPoke } from '../../assets/style/StyledPokemonGlobal';
 import { usePokebag } from '../context/PokebagContextProvider';
@@ -7,38 +7,30 @@ import { ModalDiv, ModalHeader, ModalFooter, ModalBody, ModalContent, ModalButto
 
 
 function CardAllPokemons(props) {
-
   const { myPokemon, setMyPokemon } = usePokebag(PokebagContext);
-
   const [modal, setModal] = useState({
     showModal: false,
     message: ""
   })
 
   const handleAdd = (pokemon) => {
-
     setModal({
       showModal: !modal.showModal,
       message: `Você adicionou ${pokemon.name} à sua Pokebag!`
-
     })
 
     if (!myPokemon.includes(pokemon)) {
       myPokemon.push(pokemon)
-
     }
-
-    const myNewPokemon = myPokemon
-    setMyPokemon(myNewPokemon)
-
-    console.log("MY POKEMON: " + JSON.stringify(myPokemon))
+    const myNewPokemon = myPokemon;
+    setMyPokemon([...myNewPokemon])
+    // console.log("MY POKEMON: " + JSON.stringify(myPokemon))
   }
 
   const handleRemove = (pokemon) => {
     setModal({
       showModal: !modal.showModal,
       message: `Você removeu ${pokemon.name} de sua Pokebag!`
-
     })
 
     const isInPokebag = myPokemon.filter((poke) => poke.number === pokemon.number);
@@ -49,23 +41,12 @@ function CardAllPokemons(props) {
 
     }
 
-
   }
 
-  const handleHavePokemon = (pokemon, condition, length) => {
-    if (length >= 6) {
-      return false
-    }
-    const isInPokebag = myPokemon.filter((poke) => poke.id === pokemon.number);
-
-    if (condition === "add") {
-      var boolean = isInPokebag.length === 0 ? true : false
-      return boolean
-    }
-    else if (condition === "remove")
-      boolean = isInPokebag.length >= 1 ? true : false
+  const handleHavePokemon = (pokemon, condition) => {
+    if (condition === "add") { var boolean = myPokemon.includes(pokemon) ? false : true }
+    else if (condition === "remove") { boolean = myPokemon.includes(pokemon) ? true : false }
     return boolean
-
   }
 
   return (
@@ -82,11 +63,11 @@ function CardAllPokemons(props) {
         <div>
           <CardButton type={props.color}>{props.link}</CardButton>
         </div>
-        <div class="addAndRemoveButtons">
-          {handleHavePokemon(props.wholePokemon, "add", myPokemon.length) &&
+        <div className="addAndRemoveButtons">
+          {handleHavePokemon(props.wholePokemon, "add") && myPokemon.length < 6 &&
             <AddPokebagButton
               onClick={() => handleAdd(props.wholePokemon)}>+</AddPokebagButton>}
-          {handleHavePokemon(props.wholePokemon, "remove") && myPokemon.length > 0 && <DeletePokebagButton
+          {handleHavePokemon(props.wholePokemon, "remove") && <DeletePokebagButton
             onClick={() => handleRemove(props.wholePokemon)}>-</DeletePokebagButton>}
         </div>
         {modal.showModal &&

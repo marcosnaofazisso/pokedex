@@ -17,7 +17,7 @@ function AllPokemons() {
                 const response = await fetch("https://pokedex-requests.herokuapp.com/pokemons");
                 const data = await response.json()
                 setPokemons(data);
-                console.log(JSON.stringify(data));
+                // console.log(JSON.stringify(data));
 
             } catch (error) {
                 console.log("Error:", error)
@@ -32,7 +32,7 @@ function AllPokemons() {
             <h1 className="headerPokemons">Pokemons</h1>
             <MainContainer>
                 <ContainerAllPokemons>
-                    {pokemons.length < 1 && (<h1>Carregando...</h1>)}
+                    {pokemons.length < 1 && (<h1 className='loading'>Carregando...</h1>)}
                     {Object.values(pokemons).map((pokemon) => {
                         return (
                             <CardAllPokemons
