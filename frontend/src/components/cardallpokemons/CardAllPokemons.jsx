@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import { AddPokebagButton, DeletePokebagButton } from '../../assets/style/StyledPokebag';
 import { CardButton, CardPoke } from '../../assets/style/StyledPokemonGlobal';
 import { usePokebag } from '../context/PokebagContextProvider';
@@ -20,11 +20,10 @@ function CardAllPokemons(props) {
     })
 
     if (!myPokemon.includes(pokemon)) {
+      setMyPokemon(myPokemon => myPokemon.concat(pokemon));
       myPokemon.push(pokemon)
     }
-    const myNewPokemon = myPokemon;
-    setMyPokemon([...myNewPokemon])
-    // console.log("MY POKEMON: " + JSON.stringify(myPokemon))
+    console.log("MY POKEMON: " + JSON.stringify(myPokemon))
   }
 
   const handleRemove = (pokemon) => {
@@ -38,14 +37,13 @@ function CardAllPokemons(props) {
     if (isInPokebag.length >= 1) {
       const myNewPokemon = myPokemon.filter((poke) => poke.number !== pokemon.number);
       setMyPokemon(myNewPokemon)
-
     }
-
   }
 
   const handleHavePokemon = (pokemon, condition) => {
-    if (condition === "add") { var boolean = myPokemon.includes(pokemon) ? false : true }
-    else if (condition === "remove") { boolean = myPokemon.includes(pokemon) ? true : false }
+    const isInPokebag = myPokemon.filter((poke) => poke.number === pokemon.number);
+    if (condition === "add") { var boolean = isInPokebag.length > 0 ? false : true }
+    else if (condition === "remove") { boolean = isInPokebag.length > 0 ? true : false }
     return boolean
   }
 
