@@ -5,7 +5,7 @@ import ContainerAllPokemons from '../../components/cardallpokemons/ContainerAllP
 import { MainDiv, MainContainer } from '../../assets/style/StyledGlobal'
 import { images } from '../../assets/data/AllPokemonImages'
 import { typeColors } from '../../assets/data/TypesColors'
-
+import api from '../../assets/data/api'
 
 function AllPokemons() {
 
@@ -14,8 +14,8 @@ function AllPokemons() {
     useEffect(() => {
         const getProjects = async () => {
             try {
-                const response = await fetch("https://pokedex-requests.herokuapp.com/pokemons");
-                const data = await response.json()
+                const response = await api.get("/pokemons");
+                const data = response.data
                 setPokemons(data);
                 // console.log(JSON.stringify(data));
 
