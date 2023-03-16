@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react'
 import CardPokemon from '../../components/cardpokemon/CardPokemon'
 import { typeColors } from '../../assets/data/TypesColors'
 import { images } from '../../assets/data/AllPokemonImages'
-
+import api from '../../assets/data/api'
 
 function Pokemon(props) {
 
@@ -15,15 +15,18 @@ function Pokemon(props) {
     const [pokemon, setPokemon] = useState([])
 
     useEffect(() => {
-        fetch("https://pokedex-requests.herokuapp.com/pokemons/" + id).then((resp) => {
-            return resp.json()
-        }).then((resp) => {
-            setPokemon(resp)
-            console.log(resp)
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }).catch(error => {
-            console.log(error)
-        })
+        const getPokemon = async () => {
+            try {
+                const response = await api.get("/pokemons/" + id)
+                const data = response.data
+                setPokemon(data)
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (error) {
+                console.log("Pokemon Request Error: ", error)
+            }
+
+        }
+        getPokemon();
     }, [])
 
 

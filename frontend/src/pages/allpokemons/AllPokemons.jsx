@@ -12,7 +12,7 @@ function AllPokemons() {
     const [pokemons, setPokemons] = useState([])
 
     useEffect(() => {
-        const getProjects = async () => {
+        const getPokemons = async () => {
             try {
                 const response = await api.get("/pokemons");
                 const data = response.data
@@ -23,7 +23,7 @@ function AllPokemons() {
                 console.log("Error:", error)
             }
         }
-        getProjects();
+        getPokemons();
 
     }, [])
 
